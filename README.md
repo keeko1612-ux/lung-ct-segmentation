@@ -45,6 +45,20 @@ negative values. Converting to int32 before applying the HU formula
 (HU = pixel × slope + intercept) is critical — without this, 
 values wrap around to millions instead of the correct -1024 to +1950 range.
 
+## Nodule Detection
+
+Automated detection of nodule candidates inside segmented lung regions.
+
+- Identifies dense regions (HU > -100) inside the lung mask
+- Filters by size to remove noise and large vessels  
+- Estimates diameter in millimetres for each candidate
+- Annotates each finding with circle and measurement label
+
+![Nodule Detection](outputs/04_nodule_detection.png)
+
+### Example Output — LUNGx-CT013 Slice 150
+7 nodule candidates detected, diameters ranging from 2.3mm to 4.3mm
+
 ## Author
 
 Keerthivarman Kanagaraj  
