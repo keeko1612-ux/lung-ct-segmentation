@@ -1,2 +1,51 @@
-# lung-ct-segmentation
-CT image processing pipeline for lung nodule segmentation using SPIE-AAPM clinical data
+# Lung CT Segmentation Pipeline
+
+Medical image processing pipeline for automated lung segmentation 
+using real clinical CT data from the SPIE-AAPM Lung CT Challenge dataset.
+
+## What This Does
+
+- Loads a full CT scan series from DICOM files (324 slices, 512×512)
+- Converts raw pixel values to Hounsfield Units (HU)
+- Applies lung windowing to isolate relevant tissue density ranges
+- Segments both lungs automatically using body masking and morphological operations
+- Visualises results with overlay across multiple slices
+
+## Results
+
+![Raw CT Slices](outputs/01_raw_slices.png)
+![Lung Segmentation](outputs/02_segmentation.png)
+![Multi-slice Segmentation](outputs/03_multi_slice_segmentation.png)
+
+## Dataset
+
+SPIE-AAPM Lung CT Challenge — 70 patients, publicly available via 
+The Cancer Imaging Archive (TCIA). Data not included in this repo.
+
+## Tech Stack
+
+- Python 3
+- pydicom — DICOM file loading
+- NumPy — array operations and HU conversion
+- scikit-image — connected component labelling, morphological operations
+- SciPy — binary hole filling
+- Matplotlib — visualisation
+
+## How to Run
+
+1. Download the SPIE-AAPM dataset from cancerimagingarchive.net
+2. Place one patient folder in `data/`
+3. Install dependencies: `pip install pydicom numpy matplotlib scipy scikit-image`
+4. Open `notebooks/01_explore_data.ipynb` and run all cells
+
+## Key Technical Challenge
+
+DICOM pixel arrays are stored as uint16 (unsigned) which cannot hold 
+negative values. Converting to int32 before applying the HU formula 
+(HU = pixel × slope + intercept) is critical — without this, 
+values wrap around to millions instead of the correct -1024 to +1950 range.
+
+## Author
+
+Keerthivarman Kanagaraj  
+MSc Engineering Physics — University of Oldenburg, Germany
