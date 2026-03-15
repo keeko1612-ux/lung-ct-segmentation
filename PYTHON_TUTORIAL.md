@@ -826,7 +826,7 @@ plt.show()
 | `x == 5` | Equals? | Returns True/False |
 | `x > 5` | Greater than? | Returns True/False |
 | `x & y` | AND (arrays) | Both must be True |
-| `x \| y` | OR (arrays) | Either can be True |
+| `x` &#124; `y` | OR (arrays) | Either can be True |
 | `~x` | NOT (array) | Inverts True/False |
 | `x ** 2` | Power | x squared |
 | `x ** 0.5` | Square root | √x |
