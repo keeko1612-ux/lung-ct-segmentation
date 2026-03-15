@@ -3,6 +3,11 @@
 Medical image processing pipeline for automated lung segmentation 
 using real clinical CT data from the SPIE-AAPM Lung CT Challenge dataset.
 
+## 📚 Learning Resources
+
+**New to Python or this codebase?** Check out the comprehensive tutorial:  
+👉 **[PYTHON_TUTORIAL.md](PYTHON_TUTORIAL.md)** — Learn Python syntax and understand every line of this code!
+
 ## What This Does
 
 - Loads a full CT scan series from DICOM files (324 slices, 512×512)
